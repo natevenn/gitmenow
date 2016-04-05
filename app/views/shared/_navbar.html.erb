@@ -1,0 +1,21 @@
+<div class='navbar navbar-inverse'>
+  <div class='container-fluid' class='nav-bar'>
+      <div class='nav pull-right'>
+        <ul class='nav'>
+        <% if current_user %>
+          <li class="welcome">
+            <p class='navbar-text'>Welcome <%= current_user.screen_name %></p>
+        </li>
+        <li class="logout links">
+          <a data-method='delete' href="/logout" >Logout</a>
+        </li>
+      <% else %>
+        <li class="login links">
+        <a href="/auth/github">Log in with Github</a>
+        </li>
+      <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
