@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get '/auth/github', as: 'github_login'
 
-  resources :users, only: [:index]
+  get '/dashboard', to: 'user#show'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
