@@ -136,6 +136,9 @@ GEM
       ruby-openid (>= 2.1.8)
     rack-test (0.6.3)
       rack (>= 1.0)
+    rack_session_access (0.1.1)
+      builder (>= 2.0.0)
+      rack (>= 1.0.0)
     rails (4.2.5.1)
       actionmailer (= 4.2.5.1)
       actionpack (= 4.2.5.1)
@@ -224,6 +227,7 @@ DEPENDENCIES
   capybara
   coffee-rails (~> 4.1.0)
   database_cleaner
+  faraday
   figaro
   jbuilder (~> 2.0)
   jquery-rails
@@ -231,6 +235,7 @@ DEPENDENCIES
   omniauth-openid!
   pg (~> 0.15)
   pry-rails
+  rack_session_access
   rails (= 4.2.5.1)
   rspec-rails
   sass-rails (~> 5.0)
