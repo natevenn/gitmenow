@@ -1,29 +1,38 @@
 class GithubService
-  attr_reader :connection, :access_token, :user
+  attr_reader :connection
 
   def initialize(user)
-    @user = user
-    @connection = Faraday.new("https://api.github.com/users/#{user.screen_name}/")
-    @access_token = "?access_token=#{user.oauth_token}"
+    @connection = Faraday.new("https://api.github.com/users/#{user.screen_name}")
+    connection.params["access_token"] = "#{user.oauth_token}"
   end
 
   def following
-    parse(connection.get("/following + access_token"))
+    parse(connection.get("following"))
   end
 
   def followers
-    parse(connection.get("/followers + access_token"))
+    parse(connection.get("followers"))
   end
 
   def repos
-    parse(connection.get("repos" + "#{access_token}"))
+    parse(connection.get("repos"))
   end
 
   def gists
-    parse(connection.get("/gists + access_token"))
+    parse(connection.get("gists"))
   end
 
-  def parse(response)
-    JSON.parse(response.body, object_class: OpenStruct)
+  def organizations
+    parse(connection.get("orgs"))
   end
+
+  private
+
+    def parse(response)
+      JSON.parse(response.body, object_class: OpenStruct)
+    end
+
+    def connection
+      @connection
+    end
 end

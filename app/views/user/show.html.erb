@@ -1,25 +1,305 @@
-<div role="main" class="main-content">
-  <div class="jumbotron jumbotron-user jumbotron-inverse">
-    <div class='container-fluid'>
-      <div class='col-lg-12 landing-page'>
-        <div class='col-sm-3 col-sm-offset-1'>
-          <img src=<%= @user.image %> class='img-thumbnail'>
-          <h2 class='text-cente'><%= @user.name %></h2>
-          <p class='bottom'><%= @user.screen_name %></p>
-        </div>
-        <div class='col-sm-3 col-sm-offset-1'>
-          <%#<p><%= @user.location %></p>%>
-          <%#<p><%= @user.email %></p>%>
-          <%#<p><%=%>
-        <div class='text-center'>
-          <ul class='col-sm-offset-9'>
-            <h3>Repos</h3>
-          <% @repos.each do |repo| %>
-            <li><%= repo.name %></li>
-          <% end %>
-          </ul>
-        </div>
+<html lang="en" class=" is-copy-enabled emoji-size-boost is-u2f-enabled"><head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# object: http://ogp.me/ns/object# article: http://ogp.me/ns/article# profile: http://ogp.me/ns/profile#">
+    <meta charset="utf-8">
+
+    <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/frameworks-2e515bdafb476fc4782f7fa152b6496426a70d5dbfe3b249fb7cf67d2b22e8af.css" integrity="sha256-LlFb2vtHb8R4L3+hUrZJZCanDV2/47JJ+3z2fSsi6K8=" media="all" rel="stylesheet">
+    <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/github-1a130c4fd82a09ccb1d9c83d678395c735b0221156e0555a031572e22b4311ea.css" integrity="sha256-GhMMT9gqCcyx2cg9Z4OVxzWwIhFW4FVaAxVy4itDEeo=" media="all" rel="stylesheet">
+
+
+
+
+
+    <link as="script" href="https://assets-cdn.github.com/assets/frameworks-5faa70560d8748e1620ffff551ee0dc677a5f6e0f6b76ca60dd2152e8e116ce3.js" rel="preload">
+
+    <link as="script" href="https://assets-cdn.github.com/assets/github-259a40261a4df544deea8e9b191122ec14dec6b42af385dcf9641d25fa85fa17.js" rel="preload">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="viewport" content="width=1020">
+    <meta content="origin-when-cross-origin" name="referrer">
+
+    <title><%= current_user.screen_name %> (<%= current_user.name %>)</title>
+    <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub">
+    <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+    <meta property="fb:app_id" content="1401488693436528">
+
+      <meta content="https://avatars3.githubusercontent.com/u/8459012?v=3&amp;s=400" name="twitter:image:src"><meta content="@github" name="twitter:site"><meta content="summary" name="twitter:card"><meta content="natevenn (Nate Venn)" name="twitter:title"><meta content="natevenn has 32 repositories written in Ruby, HTML, and CSS. Follow their code on GitHub." name="twitter:description">
+      <meta content="https://avatars3.githubusercontent.com/u/8459012?v=3&amp;s=400" property="og:image"><meta content="GitHub" property="og:site_name"><meta content="profile" property="og:type"><meta content="natevenn (Nate Venn)" property="og:title"><meta content="https://github.com/natevenn" property="og:url"><meta content="natevenn has 32 repositories written in Ruby, HTML, and CSS. Follow their code on GitHub." property="og:description"><meta content="natevenn" property="profile:username">
+      <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
+    <meta name="browser-errors-url" content="https://api.github.com/_private/browser/errors">
+    <link rel="assets" href="https://assets-cdn.github.com/">
+    <link rel="web-socket" href="wss://live.github.com/_sockets/ODQ1OTAxMjphODZmZGY2NzQzNDhjZGU4M2UxNGIwOGFhNTdmOGRjMzo5NjAwMThhMjc5MzRiNTBmNWYwNjkwMDA2NGNjZWFjOWRlNjE0MzliNzNmNTFkZDJmMjdlYjlmNjQwMDliZjEz--24a0d9190160ddc174f1eb0a5219616d026db164">
+    <meta name="pjax-timeout" content="1000">
+    <link rel="sudo-modal" href="/sessions/sudo_modal">
+
+    <meta name="msapplication-TileImage" content="/windows-tile.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="selected-link" value="/natevenn" data-pjax-transient="">
+
+    <meta name="google-site-verification" content="KT5gs8h0wvaagLKAVWq8bbeNwnZZK1r1XQysX3xurLU">
+<meta name="google-site-verification" content="ZzhVyEFwb7w3e0-uOTltm8Jsck2F5StVihD0exw2fsA">
+    <meta name="google-analytics" content="UA-3769691-2">
+
+<meta content="collector.githubapp.com" name="octolytics-host"><meta content="github" name="octolytics-app-id"><meta content="3F910F63:9544:3067D0D:5705A7F9" name="octolytics-dimension-request_id"><meta content="8459012" name="octolytics-actor-id"><meta content="natevenn" name="octolytics-actor-login"><meta content="53d6e32ffc0f09ddcb4ff07acba3ace60341bbd991a0667bb3d8f9ec4e41c8d7" name="octolytics-actor-hash">
+<meta content="/<user-name>" data-pjax-transient="true" name="analytics-location">
+
+
+
+  <meta class="js-ga-set" name="dimension1" content="Logged In">
+
+
+
+        <meta name="hostname" content="github.com">
+        <meta name="user-login" content="<%= current_user.screen_name %>">
+
+        <meta name="expected-hostname" content="github.com">
+      <meta name="js-proxy-site-detection-payload" content="ZTBkNzc4YTA1MWMxYjc5NzgyMzZjOGM3ZTVjM2MzYTZmZmExNGVmMDZkNTQ3ZGQ5Y2MyODhjNmQ0NTViM2FmZXx7InJlbW90ZV9hZGRyZXNzIjoiNjMuMTQ1LjE1Ljk5IiwicmVxdWVzdF9pZCI6IjNGOTEwRjYzOjk1NDQ6MzA2N0QwRDo1NzA1QTdGOSIsInRpbWVzdGFtcCI6MTQ1OTk4ODQ3M30=">
+
+      <link rel="mask-icon" href="https://assets-cdn.github.com/pinned-octocat.svg" color="#4078c0">
+      <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
+
+    <meta content="472dcedadc31afae1cc0458773946a4bfbf931fe" name="form-nonce">
+
+    <meta http-equiv="x-pjax-version" content="25733d7eed2d367cce1c8dee6e4bc042">
+
+
+        <link href="/natevenn.atom" rel="alternate" title="atom" type="application/atom+xml">
+  <meta name="description" content="natevenn has 32 repositories written in Ruby, HTML, and CSS. Follow their code on GitHub.">
+  <meta content="8459012" name="octolytics-dimension-user_id"><meta content="natevenn" name="octolytics-dimension-user_login">
+
+
+  </head>
+
+
+  <body class="logged-in   env-production macintosh  page-profile mine">
+    <div id="js-pjax-loader-bar" class="pjax-loader-bar"></div>
+    <a href="#start-of-content" tabindex="1" class="accessibility-aid js-skip-to-content">Skip to content</a>
+
+          <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/logout" class="logout-form" data-form-nonce="472dcedadc31afae1cc0458773946a4bfbf931fe" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="Rkzcvc/NQg9zHD79fA5MBADvUJ2uympceDSAdFVkVn1KOSVuY8DfkTNx5wcvMuEg6RL4WDE08XEV0O9c79qCqw=="></div>
+</form>
       </div>
+    </div>
+  </li>
+</ul>
+
+
+
+  </div>
+</div>
+
+
+
+
+
+    <div id="start-of-content" class="accessibility-aid"></div>
+
+      <div id="js-flash-container">
+</div>
+
+
+    <div role="main" class="main-content">
+
+      <div id="js-pjax-container" data-pjax-container="">
+
+
+<div class="page-content container">
+  <div class="columns profilecols">
+    <div class="column one-fourth vcard" itemscope="" itemtype="http://schema.org/Person">
+      <a href="/account" aria-label="Change your avatar" class="vcard-avatar d-block tooltipped tooltipped-s"><img alt="" class="avatar rounded-2" height="230" src="<%= current_user.image %>" width="230"></a>
+
+      <h1 class="vcard-names my-3">
+        <div class="vcard-fullname" itemprop="name"><%= current_user.name %></div>
+        <div class="vcard-username" itemprop="additionalName"><%= current_user.screen_name %></div>
+</h1>
+
+
+
+<ul class="vcard-details border-top border-gray-light py-3">
+
+
+  <li aria-label="Home location" class="vcard-detail py-1 css-truncate css-truncate-target" itemprop="homeLocation" title="<%= current_user.location %>"><svg aria-hidden="true" class="octicon octicon-location" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M6 0C2.69 0 0 2.5 0 5.5c0 4.52 6 10.5 6 10.5s6-5.98 6-10.5C12 2.5 9.31 0 6 0z m0 14.55C4.14 12.52 1 8.44 1 5.5 1 3.02 3.25 1 6 1c1.34 0 2.61 0.48 3.56 1.36 0.92 0.86 1.44 1.97 1.44 3.14 0 2.94-3.14 7.02-5 9.05z m2-9.05c0 1.11-0.89 2-2 2s-2-0.89-2-2 0.89-2 2-2 2 0.89 2 2z"></path></svg><%= current_user.location %></li>
+  <li aria-label="Email" class="vcard-detail py-1 css-truncate css-truncate-target" itemprop="email"><svg aria-hidden="true" class="octicon octicon-mail" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M0 4v8c0 0.55 0.45 1 1 1h12c0.55 0 1-0.45 1-1V4c0-0.55-0.45-1-1-1H1c-0.55 0-1 0.45-1 1z m13 0L7 9 1 4h12zM1 5.5l4 3L1 11.5V5.5z m1 6.5l3.5-3 1.5 1.5 1.5-1.5 3.5 3H2z m11-0.5L9 8.5l4-3v6z"></path></svg><a href="mailto:%6e%61%74%65%76%65%6e%6e@%67%6d%61%69%6c.%63%6f%6d"><%= current_user.email %></a></li>
+
+  <li aria-label="Member since" class="vcard-detail py-1 css-truncate css-truncate-target"><svg aria-hidden="true" class="octicon octicon-clock" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M8 8h3v2H7c-0.55 0-1-0.45-1-1V4h2v4z m-1-5.7c3.14 0 5.7 2.56 5.7 5.7S10.14 13.7 7 13.7 1.3 11.14 1.3 8s2.56-5.7 5.7-5.7m0-1.3C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7S10.86 1 7 1z"></path></svg><span class="join-label">Joined on </span><time class="join-date" datetime="2014-08-15T15:44:20Z" day="numeric" is="local-time" month="short" year="numeric" title="<%= current_user.account_created %>"><%= current_user.account_created %></time></li>
+</ul>
+
+
+<div class="vcard-stats border-top border-bottom border-gray-light mb-3 py-3">
+  <a class="vcard-stat" href="/natevenn/followers">
+    <strong class="vcard-stat-count d-block"><%= @followers.count %></strong>
+    <span class="text-muted">Followers</span>
+  </a>
+  <a class="vcard-stat" href="/stars">
+    <strong class="vcard-stat-count d-block">0</strong>
+    <span class="text-muted">Starred</span>
+  </a>
+  <a class="vcard-stat" href="/natevenn/following">
+    <strong class="vcard-stat-count d-block"><% if @following.nil? %>0</strong> <% else %> <%= @following.count %></strong> <% end %>
+<span class="text-muted">Following</span>
+  </a>
+</div>
+<% unless @organizations.nil? %>
+  <div class="clearfix">
+    <h3>Organizations</h3>
+    <% @organizations.each do |organization| %>
+      <a href="<%= organization.url %>" aria-label="TestingTuringTesting" class="tooltipped tooltipped-n avatar-group-item" itemprop="follows"><img alt="@TestingTuringTesting" class="avatar" height="42" src="<%= organization.avatar_url %>" width="42"></a>
+  </div>
+<% end %>
+<% end %>
     </div>
   </div>
 
+    <div class="column three-fourths">
+
+
+
+        <div class="contrib-column contrib-column-first table-column">
+          <span class="text-muted">Contributions in the last year</span>
+          <span class="contrib-number"><%= current_user.number_of_contributions_last_year %></span>
+          <span class="text-muted"><%= current_user.time_frames_last_year %></span>
+        </div>
+        <div class="contrib-column table-column">
+          <span class="text-muted">Longest streak</span>
+          <span class="contrib-number"><%= current_user.longest_streak %></span>
+            <span class="text-muted">
+              <%= current_user.time_frames_longest_streak %>
+              </span>
+        </div>
+        <div class="contrib-column table-column">
+          <span class="text-muted">Current streak</span>
+          <span class="contrib-number"><%= current_user.current_streak %></span>
+            <span class="text-muted">
+              <%= current_user.time_frames_current_streak %>
+            </span>
+        </div>
+            <h3>Repos</h3>
+            <% @repos.each do |repo| %>
+ <div class="repo-list-item public source" itemprop="owns" itemscope="" itemtype="http://schema.org/Code">
+    <div class="repo-list-stats">
+        <span itemprop="programmingLanguage">
+          <%= repo.language %>
+        </span>
+      <a class="repo-list-stat-item tooltipped tooltipped-s" href="#" aria-label="Stargazers">
+        <svg aria-hidden="true" class="octicon octicon-star" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M14 6l-4.9-0.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14l4.33-2.33 4.33 2.33L10.4 9.26 14 6z"></path></svg>
+        <%= repo.star_count %>
+      </a>
+      <a class="repo-list-stat-item tooltipped tooltipped-s" href="#" aria-label="Forks">
+        <svg aria-hidden="true" class="octicon octicon-git-branch" height="16" version="1.1" viewBox="0 0 10 16" width="10"><path d="M10 5c0-1.11-0.89-2-2-2s-2 0.89-2 2c0 0.73 0.41 1.38 1 1.72v0.3c-0.02 0.52-0.23 0.98-0.63 1.38s-0.86 0.61-1.38 0.63c-0.83 0.02-1.48 0.16-2 0.45V4.72c0.59-0.34 1-0.98 1-1.72 0-1.11-0.89-2-2-2S0 1.89 0 3c0 0.73 0.41 1.38 1 1.72v6.56C0.41 11.63 0 12.27 0 13c0 1.11 0.89 2 2 2s2-0.89 2-2c0-0.53-0.2-1-0.53-1.36 0.09-0.06 0.48-0.41 0.59-0.47 0.25-0.11 0.56-0.17 0.94-0.17 1.05-0.05 1.95-0.45 2.75-1.25s1.2-1.98 1.25-3.02h-0.02c0.61-0.36 1.02-1 1.02-1.73zM2 1.8c0.66 0 1.2 0.55 1.2 1.2s-0.55 1.2-1.2 1.2-1.2-0.55-1.2-1.2 0.55-1.2 1.2-1.2z m0 12.41c-0.66 0-1.2-0.55-1.2-1.2s0.55-1.2 1.2-1.2 1.2 0.55 1.2 1.2-0.55 1.2-1.2 1.2z m6-8c-0.66 0-1.2-0.55-1.2-1.2s0.55-1.2 1.2-1.2 1.2 0.55 1.2 1.2-0.55 1.2-1.2 1.2z"></path></svg>
+        <%= repo.fork_count %>
+      </a>
+    </div>
+
+    <h3 class="repo-list-name">
+      <a href="<%= repo.url %>" itemprop="name codeRepository">
+        <%= repo.name %></a>
+    </h3>
+
+
+
+
+    <p class="repo-list-meta">
+    Updated <time datetime="<%= repo.updated %>" is="relative-time" title="Apr 5, 2016, 11:43 PM MDT">20 hours ago</time>
+    </p>
+
+    <div class="participation-graph">
+      <svg class="bars" width="640" height="100">
+      <g transform="translate(627.81, 0)">
+        <rect width="11.31" height="9.0" y="91.0" fill="#f8f8f8"></rect>
+        <rect width="11.31" height="9.0" y="91.0" fill="#dedede"></rect>
+      </g>
+</svg>
+
+    </div>
+  </div>
+<% end %>
+    </div>
+  </div>
+
+  </div>
+</div><!-- /.contributions-tab -->
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+      </div>
+      <%#<div class="modal-backdrop"></div>%>
+    <%#</div>%>
+
+        <%#<div class="container site-footer-container">%>
+  <%#<div class="site-footer" role="contentinfo">%>
+    <%#<ul class="site-footer-links right">%>
+        <%#<li><a href="https://status.github.com/" data-ga-click="Footer, go to status, text:status">Status</a></li>%>
+      <%#<li><a href="https://developer.github.com" data-ga-click="Footer, go to api, text:api">API</a></li>%>
+      <%#<li><a href="https://training.github.com" data-ga-click="Footer, go to training, text:training">Training</a></li>%>
+      <%#<li><a href="https://shop.github.com" data-ga-click="Footer, go to shop, text:shop">Shop</a></li>%>
+        <%#<li><a href="https://github.com/blog" data-ga-click="Footer, go to blog, text:blog">Blog</a></li>%>
+        <%#<li><a href="https://github.com/about" data-ga-click="Footer, go to about, text:about">About</a></li>%>
+
+    <%#</ul>%>
+
+    <%#<a href="https://github.com" aria-label="Homepage" class="site-footer-mark">%>
+      <%#<svg aria-hidden="true" class="octicon octicon-mark-github" height="24" title="GitHub " version="1.1" viewBox="0 0 16 16" width="24"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59 0.4 0.07 0.55-0.17 0.55-0.38 0-0.19-0.01-0.82-0.01-1.49-2.01 0.37-2.53-0.49-2.69-0.94-0.09-0.23-0.48-0.94-0.82-1.13-0.28-0.15-0.68-0.52-0.01-0.53 0.63-0.01 1.08 0.58 1.23 0.82 0.72 1.21 1.87 0.87 2.33 0.66 0.07-0.52 0.28-0.87 0.51-1.07-1.78-0.2-3.64-0.89-3.64-3.95 0-0.87 0.31-1.59 0.82-2.15-0.08-0.2-0.36-1.02 0.08-2.12 0 0 0.67-0.21 2.2 0.82 0.64-0.18 1.32-0.27 2-0.27 0.68 0 1.36 0.09 2 0.27 1.53-1.04 2.2-0.82 2.2-0.82 0.44 1.1 0.16 1.92 0.08 2.12 0.51 0.56 0.82 1.27 0.82 2.15 0 3.07-1.87 3.75-3.65 3.95 0.29 0.25 0.54 0.73 0.54 1.48 0 1.07-0.01 1.93-0.01 2.2 0 0.21 0.15 0.46 0.55 0.38C13.71 14.53 16 11.53 16 8 16 3.58 12.42 0 8 0z"></path></svg>%>
+<%#</a>%>
+    <%#<ul class="site-footer-links">%>
+      <%#<li>© 2016 <span title="0.18246s from github-fe118-cp1-prd.iad.github.net">GitHub</span>, Inc.</li>%>
+        <%#<li><a href="https://github.com/site/terms" data-ga-click="Footer, go to terms, text:terms">Terms</a></li>%>
+        <%#<li><a href="https://github.com/site/privacy" data-ga-click="Footer, go to privacy, text:privacy">Privacy</a></li>%>
+        <%#<li><a href="https://github.com/security" data-ga-click="Footer, go to security, text:security">Security</a></li>%>
+        <%#<li><a href="https://github.com/contact" data-ga-click="Footer, go to contact, text:contact">Contact</a></li>%>
+        <%#<li><a href="https://help.github.com" data-ga-click="Footer, go to help, text:help">Help</a></li>%>
+    <%#</ul>%>
+  <%#</div>%>
+<%#</div>%>
+
+
+
+
+
+
+    <div id="ajax-error-message" class="ajax-error-message flash flash-error">
+      <svg aria-hidden="true" class="octicon octicon-alert" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M15.72 12.5l-6.85-11.98C8.69 0.21 8.36 0.02 8 0.02s-0.69 0.19-0.87 0.5l-6.85 11.98c-0.18 0.31-0.18 0.69 0 1C0.47 13.81 0.8 14 1.15 14h13.7c0.36 0 0.69-0.19 0.86-0.5S15.89 12.81 15.72 12.5zM9 12H7V10h2V12zM9 9H7V5h2V9z"></path></svg>
+      <button type="button" class="flash-close js-flash-close js-ajax-error-dismiss" aria-label="Dismiss error">
+        <svg aria-hidden="true" class="octicon octicon-x" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M7.48 8l3.75 3.75-1.48 1.48-3.75-3.75-3.75 3.75-1.48-1.48 3.75-3.75L0.77 4.25l1.48-1.48 3.75 3.75 3.75-3.75 1.48 1.48-3.75 3.75z"></path></svg>
+      </button>
+      Something went wrong with that request. Please try again.
+    </div>
+
+
+
+      <script crossorigin="anonymous" integrity="sha256-X6pwVg2HSOFiD//1Ue4Nxnel9uD2t2ymDdIVLo4RbOM=" src="https://assets-cdn.github.com/assets/frameworks-5faa70560d8748e1620ffff551ee0dc677a5f6e0f6b76ca60dd2152e8e116ce3.js"></script>
+      <script async="async" crossorigin="anonymous" integrity="sha256-JZpAJhpN9UTe6o6bGREi7BTexrQq84Xc+WQdJfqF+hc=" src="https://assets-cdn.github.com/assets/github-259a40261a4df544deea8e9b191122ec14dec6b42af385dcf9641d25fa85fa17.js"></script>
+
+
+
+
+
+    <div class="js-stale-session-flash stale-session-flash flash flash-warn flash-banner hidden">
+      <svg aria-hidden="true" class="octicon octicon-alert" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M15.72 12.5l-6.85-11.98C8.69 0.21 8.36 0.02 8 0.02s-0.69 0.19-0.87 0.5l-6.85 11.98c-0.18 0.31-0.18 0.69 0 1C0.47 13.81 0.8 14 1.15 14h13.7c0.36 0 0.69-0.19 0.86-0.5S15.89 12.81 15.72 12.5zM9 12H7V10h2V12zM9 9H7V5h2V9z"></path></svg>
+      <span class="signed-in-tab-flash">You signed in with another tab or window. <a href="">Reload</a> to refresh your session.</span>
+      <span class="signed-out-tab-flash">You signed out in another tab or window. <a href="">Reload</a> to refresh your session.</span>
+    </div>
+    <div class="facebox" id="facebox" style="display:none;">
+  <div class="facebox-popup">
+    <div class="facebox-content" role="dialog" aria-labelledby="facebox-header" aria-describedby="facebox-description">
+    </div>
+    <button type="button" class="facebox-close js-facebox-close" aria-label="Close modal">
+      <svg aria-hidden="true" class="octicon octicon-x" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M7.48 8l3.75 3.75-1.48 1.48-3.75-3.75-3.75 3.75-1.48-1.48 3.75-3.75L0.77 4.25l1.48-1.48 3.75 3.75 3.75-3.75 1.48 1.48-3.75 3.75z"></path></svg>
+    </button>
+  </div>
+</div>
+
+
+
+</body><div></div><div></div></html>
