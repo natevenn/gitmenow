@@ -151,7 +151,7 @@
   <div class="clearfix">
     <h3>Organizations</h3>
     <% @organizations.each do |organization| %>
-      <a href="<%= organization.url %>" aria-label="TestingTuringTesting" class="tooltipped tooltipped-n avatar-group-item" itemprop="follows"><img alt="@TestingTuringTesting" class="avatar" height="42" src="<%= organization.avatar_url %>" width="42"></a>
+      <a href="<%= organization.url %>" aria-label="TestingTuringTesting" class="tooltipped tooltipped-n avatar-group-item" itemprop="follows"><img alt="@TestingTuringTesting" class="avatar" height="42" src="<%= organization.image %>" width="42"></a>
   </div>
 <% end %>
 <% end %>
@@ -181,7 +181,7 @@
               <%= current_user.time_frames_current_streak %>
             </span>
         </div>
-            <h3>Repos</h3>
+        <h3><strong>Repos</strong></h3>
             <% @repos.each do |repo| %>
  <div class="repo-list-item public source" itemprop="owns" itemscope="" itemtype="http://schema.org/Code">
     <div class="repo-list-stats">
@@ -210,18 +210,23 @@
     Updated <time datetime="<%= repo.updated %>" is="relative-time" title="Apr 5, 2016, 11:43 PM MDT">20 hours ago</time>
     </p>
 
-    <div class="participation-graph">
-      <svg class="bars" width="640" height="100">
-      <g transform="translate(627.81, 0)">
-        <rect width="11.31" height="9.0" y="91.0" fill="#f8f8f8"></rect>
-        <rect width="11.31" height="9.0" y="91.0" fill="#dedede"></rect>
-      </g>
-</svg>
-
-    </div>
   </div>
 <% end %>
     </div>
+  </div>
+  <div class="container">
+<span class="inner">
+        <svg aria-hidden="true" class="octicon octicon-git-commit" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M10.86 7c-0.45-1.72-2-3-3.86-3s-3.41 1.28-3.86 3H0v2h3.14c0.45 1.72 2 3 3.86 3s3.41-1.28 3.86-3h3.14V7H10.86zM7 10.2c-1.22 0-2.2-0.98-2.2-2.2s0.98-2.2 2.2-2.2 2.2 0.98 2.2 2.2-0.98 2.2-2.2 2.2z"></path></svg>
+        <span class="text-emphasized"><%= @push_events.count %></span> commits
+      </span>
+<ul class="simple-conversation-list">
+  <% @push_events.each do |event| %>
+      <li>
+        <a href="#" class="title"><%= event.message %></a>
+        <%= event.format_date %>
+      </li>
+    <% end %>
+    </ul>
   </div>
 
   </div>

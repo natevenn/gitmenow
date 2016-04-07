@@ -5,5 +5,6 @@ class UserController < ApplicationController
     @followings = Following.all(current_user)
     @gists = Gist.all(current_user)
     @organizations = Organization.all(current_user)
+    @push_events = PushEvent.all(current_user)
   end
 end

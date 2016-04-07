@@ -26,6 +26,10 @@ class GithubService
     parse(connection.get("orgs"))
   end
 
+  def events
+    parse(connection.get("events"))
+  end
+
   private
 
     def parse(response)
