@@ -10,6 +10,7 @@ class Repo
     @name = repo[:name]
     @star_count = repo[:stargazers_count]
     @fork_count = repo[:forks_count]
+    @forks = repo[:forks]
     @updated = repo[:updated_at]
     @language = repo[:language]
     @url = repo[:html_url]
