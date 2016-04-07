@@ -21,7 +21,7 @@ http_interactions:
       Server:
       - GitHub.com
       Date:
-      - Thu, 07 Apr 2016 15:48:12 GMT
+      - Thu, 07 Apr 2016 17:20:36 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -31,9 +31,9 @@ http_interactions:
       X-Ratelimit-Limit:
       - '5000'
       X-Ratelimit-Remaining:
-      - '4971'
+      - '4968'
       X-Ratelimit-Reset:
-      - '1460044738'
+      - '1460052741'
       Cache-Control:
       - private, max-age=60, s-maxage=60
       Vary:
@@ -65,12 +65,12 @@ http_interactions:
       X-Xss-Protection:
       - 1; mode=block
       X-Served-By:
-      - e183f7c661b1bbc2c987b3c4dc7b04e0
+      - cee4c0729c8e9147e7abcb45b9d69689
       X-Github-Request-Id:
-      - 3F910F63:76D6:4DD0176:5706813C
+      - 3F910F63:1559C:35C6ECD:570696E4
     body:
       encoding: ASCII-8BIT
       string: '[{"login":"TestingTuringTesting","id":17713133,"url":"https://api.github.com/orgs/TestingTuringTesting","repos_url":"https://api.github.com/orgs/TestingTuringTesting/repos","events_url":"https://api.github.com/orgs/TestingTuringTesting/events","hooks_url":"https://api.github.com/orgs/TestingTuringTesting/hooks","issues_url":"https://api.github.com/orgs/TestingTuringTesting/issues","members_url":"https://api.github.com/orgs/TestingTuringTesting/members{/member}","public_members_url":"https://api.github.com/orgs/TestingTuringTesting/public_members{/member}","avatar_url":"https://avatars.githubusercontent.com/u/17713133?v=3","description":null}]'
     http_version: 
-  recorded_at: Thu, 07 Apr 2016 15:48:12 GMT
+  recorded_at: Thu, 07 Apr 2016 17:20:36 GMT
 recorded_with: VCR 3.0.1
