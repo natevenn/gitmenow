@@ -5,6 +5,8 @@ require File.expand_path('../../config/environment', __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'spec_helper'
 require 'rspec/rails'
+require 'webmock'
+require 'vcr'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -25,6 +27,11 @@ require 'rspec/rails'
 # Checks for pending migration and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
+
+VCR.configure do |c|
+  c.cassette_library_dir = 'spec/cassettes'
+  c.hook_into :webmock
+end
 
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
@@ -78,4 +85,22 @@ RSpec.configure do |config|
       }
     })
   end
+
+   def current_user
+     User.create(
+       id: 3,
+       name: "Nate Venn",
+       email: "natevenn@gmail.com",
+       screen_name: "natevenn",
+       uid: "8459012",
+       oauth_token: ENV["USER_TOKEN"],
+       oauth_token_secret: nil,
+       created_at: "Wed, 06 Apr 2016 13:43:19 UTC +00:00",
+       updated_at: "Wed, 06 Apr 2016 13:43:19 UTC +00:00",
+       image: "https://avatars.githubusercontent.com/u/8459012?v=3",
+       location: "Denver, CO",
+       created: "Fri, 15 Aug 2014"
+     )
+   end
 end
+
