@@ -29,6 +29,7 @@ require 'vcr'
 ActiveRecord::Migration.maintain_test_schema!
 
 VCR.configure do |c|
+  c.allow_http_connections_when_no_cassette = true
   c.cassette_library_dir = 'spec/cassettes'
   c.hook_into :webmock
 end
@@ -67,23 +68,7 @@ RSpec.configure do |config|
     OmniAuth.config.test_mode = true
     # then, provide a set of fake oauth data that
     # omniauth will use when a user tries to authenticate:
-    OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
-      provider: 'Github',
-      extra: {
-        raw_info: {
-          user_id: "1234",
-          name: "Nate Venn",
-          email: 'natevenn@gmail.com',
-          screen_name: "natevenn"
-        }
-      },
-      info: {
-        nickname: 'natevenn'
-      },
-      credentials: {
-        token: "0000000000",
-      }
-    })
+    OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new( user_info)
   end
 
    def current_user
@@ -101,6 +86,50 @@ RSpec.configure do |config|
        location: "Denver, CO",
        created: "Fri, 15 Aug 2014"
      )
+   end
+
+   def user_info
+     {"provider"=>"github",
+      :uid=>"8459012",
+      :info=>
+     {:nickname=>"billboard",
+      "email"=>nil,
+      :name=>"Bill Board", "image"=>"https://avatars.githubusercontent.com/u/8459012?v=3",
+      "urls"=>{"GitHub"=>"https://github.com/natevenn", "Blog"=>nil}},
+     :credentials=>{:token=>ENV['USER_TOKEN'], "expires"=>false},
+     :extra=>
+     {:raw_info=>
+      {"login"=>"billboard",
+       "id"=>8459012,
+       :avatar_url=>"https://avatars.githubusercontent.com/u/8459012?v=3",
+       "gravatar_id"=>"",
+       "url"=>"https://api.github.com/users/natevenn",
+       "html_url"=>"https://github.com/natevenn",
+       "followers_url"=>"https://api.github.com/users/natevenn/followers",
+       "following_url"=>"https://api.github.com/users/natevenn/following{/other_user}",
+       "gists_url"=>"https://api.github.com/users/natevenn/gists{/gist_id}",
+       "starred_url"=>"https://api.github.com/users/natevenn/starred{/owner}{/repo}",
+       "subscriptions_url"=>"https://api.github.com/users/natevenn/subscriptions",
+       "organizations_url"=>"https://api.github.com/users/natevenn/orgs",
+       "repos_url"=>"https://api.github.com/users/natevenn/repos",
+       "events_url"=>"https://api.github.com/users/natevenn/events{/privacy}",
+       "received_events_url"=>"https://api.github.com/users/natevenn/received_events",
+       "type"=>"User",
+       "site_admin"=>false,
+       :name=>"bill board",
+       "company"=>nil,
+       "blog"=>nil,
+       :location=>"Denver, CO",
+       :email=>"bill@example.com",
+       "hireable"=>nil,
+       "bio"=>nil,
+       "public_repos"=>32,
+       "public_gists"=>6,
+       "followers"=>6,
+       "following"=>4,
+       :created_at=>"2014-08-15T15:44:20Z",
+       :updated_at=>"2016-04-07T04:32:00Z"},
+       "all_emails"=>[]}}
    end
 end
 
