@@ -29,4 +29,10 @@ class Repo
       repo.updated
     end.reverse
   end
+
+  def self.count_stars(repos)
+    count = repos.reduce(0) do |sum, repo|
+      sum + repo.star_count
+    end
+  end
 end

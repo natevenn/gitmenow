@@ -629,7 +629,7 @@
         1,
         null,
         1,
-        27,
+        28,
         null,
         null
       ],
@@ -649,6 +649,8 @@
         null
       ],
       "/Users/Nate/turing/3module/projects/apicurious/gitmenow/app/controllers/user_controller.rb": [
+        1,
+        1,
         1,
         1,
         1,
@@ -692,6 +694,12 @@
         30,
         2,
         null,
+        null,
+        1,
+        1,
+        0,
+        null,
+        null,
         null
       ],
       "/Users/Nate/turing/3module/projects/apicurious/gitmenow/app/services/github_service.rb": [
@@ -699,8 +707,8 @@
         1,
         null,
         1,
-        14,
-        14,
+        15,
+        15,
         null,
         null,
         1,
@@ -724,17 +732,17 @@
         null,
         null,
         1,
-        1,
+        2,
         null,
         null,
         1,
         null,
         1,
-        14,
+        15,
         null,
         null,
         1,
-        28,
+        30,
         null,
         null
       ],
@@ -822,8 +830,27 @@
         0,
         null,
         null
+      ],
+      "/Users/Nate/turing/3module/projects/apicurious/gitmenow/app/models/pull_event.rb": [
+        1,
+        1,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        1,
+        null,
+        0,
+        0,
+        null,
+        1,
+        null,
+        null
       ]
     },
-    "timestamp": 1460061608
+    "timestamp": 1460070913
   }
 }
