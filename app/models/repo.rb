@@ -17,8 +17,15 @@ class Repo
 
   def self.all(user)
     service = GithubService.new(user)
-    service.repos.map do |repo|
+    unsorted_repos = service.repos.map do |repo|
       Repo.new(repo)
     end
+    sort_repos_by_date(unsorted_repos)
+  end
+
+  def self.sort_repos_by_date(repos)
+    repos.sort_by do |repo|
+      repo.updated
+    end.reverse
   end
 end
